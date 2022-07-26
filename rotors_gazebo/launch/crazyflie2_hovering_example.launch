@@ -12,6 +12,7 @@
   <arg name="csvFilesStoring" default="false"/>
   <arg name="csvFilesStoringTime" default="15.0"/> <!-- seconds -->
   <arg name="user_account" default="giuseppe"/>
+  <arg name="enable_camera_sensor" default="true"/>
   <!-- The following line causes gzmsg and gzerr messages to be printed to the console
       (even when Gazebo is started through roslaunch) -->
   <arg name="verbose" default="true"/>
@@ -35,6 +36,7 @@
       <arg name="model" value="$(find rotors_description)/urdf/mav_generic_odometry_sensor.gazebo" />
       <arg name="enable_logging" value="$(arg enable_logging)" />
       <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+      <arg name="enable_camera_sensor" value="$(arg enable_camera_sensor)"/>
       <arg name="enable_state_estimator" value="$(arg enable_state_estimator)" />
       <arg name="log_file" value="$(arg log_file)"/>
     </include>
@@ -54,6 +56,10 @@
    <node name="quaternion_to_rpy" pkg="rotors_gazebo" type="quaternion_to_rpy" output="screen" >
        <remap from="odometry" to="odometry_sensor1/odometry" />
    </node>
+
+   <!-- Visualisation RVIZ -->
+  <!-- <node name="$(anon rviz)" launch-prefix="$(arg launch_prefix)" pkg="rviz" type="rviz" respawn="false"
+	args="$(arg command_args)" output="screen" /> -->
 
   </group>
 </launch>
