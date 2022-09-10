@@ -46,7 +46,7 @@
       noise_stddev="0.007"
       enable_visual="true">
       <box size="0.005 0.005 0.002" />
-      <origin xyz="0 0 ${-arm_length/4}" rpy="0 ${pi/2} 0" />
+      <origin xyz="0 0 ${-arm_length_front_y/5}" rpy="0 ${pi/2} 0" />
      </xacro:camera_macro>
   </xacro:if>
 
@@ -67,7 +67,7 @@
       noise_stddev="0.007"
       enable_visual="true">
       <box size="0.005 0.005 0.002" />
-      <origin xyz="${7*(arm_length/10)} 0 0" rpy="0 0 0" />
+      <origin xyz="${7*(arm_length_front_y/10)} 0 0" rpy="0 0 0" />
      </xacro:camera_macro>
   </xacro:if>
 
