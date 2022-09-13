@@ -79,7 +79,7 @@
       enable_cameras="false"
       enable_depth="true"
       enable_ground_truth="true">
-      <origin xyz="${7*(arm_length/25)} 0 ${-arm_length/4}" rpy="0 ${pi/2} 0" />
+      <origin xyz="${7*(arm_length_front_y/25)} 0 ${-arm_length_front_y/4}" rpy="0 ${pi/2} 0" />
      </xacro:vi_sensor_macro_without_visual>
   </xacro:if>
 
@@ -91,7 +91,7 @@
       enable_cameras="false"
       enable_depth="true"
       enable_ground_truth="true">
-      <origin xyz="${7*(arm_length/10)} 0 ${-arm_length/9}" rpy="0 0 0" />
+      <origin xyz="${7*(arm_length_front_y/10)} 0 ${-arm_length_front_y/9}" rpy="0 0 0" />
      </xacro:vi_sensor_macro_without_visual>
   </xacro:if>
 
