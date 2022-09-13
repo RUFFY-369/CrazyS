@@ -95,5 +95,65 @@
      </xacro:vi_sensor_macro_without_visual>
   </xacro:if>
 
+  <xacro:if value="$(arg enable_flashlight)">
+    <gazebo>
+      <model name='flashlight'>
+        <pose>0 0 0 0 0 0</pose> 
+        <link name='light_source'>
+          <pose>0 0 0.0 0.01 0 0</pose>
+          <inertial>
+            <mass>0.00000000025</mass>
+            <inertia>
+              <ixx>1.0e-012</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>1.0e-012</iyy>
+              <iyz>0</iyz>
+              <izz>1.0e-012</izz>
+            </inertia>
+          </inertial>
+          <light name='lamp' type='spot'>
+            <pose>0 0 0.0 0 0 0</pose>
+            <attenuation>
+              <range>0</range>
+              <linear>0</linear>
+              <constant>0.1</constant>
+              <quadratic>0.01</quadratic>
+            </attenuation>
+            <diffuse>0.8 0.8 0.5 1</diffuse>
+            <specular>0.8 0.8 0.5 1</specular>
+            <spot>
+              <inner_angle>1</inner_angle>
+              <outer_angle>1.1</outer_angle>
+              <falloff>1</falloff>
+            </spot>
+            <direction>0 0 -1</direction>
+          </light>
+          <visual name='lamp'>
+            <geometry>
+              <cylinder>
+                <radius>0.00019</radius>
+                <length>0.00005</length>
+              </cylinder>
+            </geometry>
+            <transparency>0.0</transparency>
+            <material>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <specular>1 1 1 1</specular>
+              <emissive>0.8 0.8 0.5 1</emissive>
+            </material>
+          </visual>
+        </link>
+      </model>
+    </gazebo>
+    <gazebo>
+      <joint name='flashlight_joint' type='fixed'>
+        <parent>${namespace}/base_link</parent>
+        <child>flashlight::light_source</child>
+      </joint>
+    </gazebo>
+  </xacro:if>
+
 </robot>
 
