@@ -15,6 +15,7 @@
   <arg name="wait_to_record_bag" default="false"/>
   <arg name="enable_mavlink_interface" default="false"/>
   <arg name="enable_camera_sensor" default="false"/>
+  <arg name="enable_vi_sensor" default="false"/>
 
   <!-- send the robot XML to param server -->
   <param name="robot_description" command="
@@ -23,6 +24,7 @@
     enable_ground_truth:=$(arg enable_ground_truth)
     enable_mavlink_interface:=$(arg enable_mavlink_interface)
     enable_camera_sensor:=$(arg enable_camera_sensor)
+    enable_vi_sensor:=$(arg enable_vi_sensor)
     log_file:=$(arg log_file)
     wait_to_record_bag:=$(arg wait_to_record_bag)
     mav_name:=$(arg mav_name)

@@ -71,5 +71,29 @@
      </xacro:camera_macro>
   </xacro:if>
 
+  <!-- Mount a ventral VI-sensor on the Iris. -->
+  <xacro:if value="$(arg enable_vi_sensor)">
+     <xacro:vi_sensor_macro_without_visual
+      namespace="${namespace}/vi_sensor_ventral"
+      parent_link="${namespace}/base_link"
+      enable_cameras="false"
+      enable_depth="true"
+      enable_ground_truth="true">
+      <origin xyz="${7*(arm_length/25)} 0 ${-arm_length/4}" rpy="0 ${pi/2} 0" />
+     </xacro:vi_sensor_macro_without_visual>
+  </xacro:if>
+
+  <!-- Mount a frontal VI-sensor on the Iris. -->
+  <xacro:if value="$(arg enable_vi_sensor)">
+     <xacro:vi_sensor_macro_without_visual
+      namespace="${namespace}/vi_sensor_frontal"
+      parent_link="${namespace}/base_link"
+      enable_cameras="false"
+      enable_depth="true"
+      enable_ground_truth="true">
+      <origin xyz="${7*(arm_length/10)} 0 ${-arm_length/9}" rpy="0 0 0" />
+     </xacro:vi_sensor_macro_without_visual>
+  </xacro:if>
+
 </robot>
 
